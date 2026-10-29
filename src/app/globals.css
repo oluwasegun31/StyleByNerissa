@@ -1,26 +1,209 @@
+@import "./morside-font.css";
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-surface: #FAF9F7;
+  --color-surface-bright: #FAF9F7;
+  --color-surface-dim: #DADAD8;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F4F3F1;
+  --color-surface-container: #EFEEEC;
+  --color-surface-container-high: #E9E8E6;
+  --color-surface-container-highest: #E3E2E0;
+
+  --color-on-surface: #1A1C1B;
+  --color-on-surface-variant: #4C4640;
+  --color-inverse-surface: #2F3130;
+  --color-inverse-on-surface: #F1F1EF;
+
+  --color-primary: #161412;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #1D1B19;
+  --color-on-primary-container: #878380;
+
+  --color-secondary: #645D58;
+  --color-on-secondary: #FFFFFF;
+  --color-secondary-container: #EAE1DA;
+  --color-on-secondary-container: #6A635E;
+
+  --color-tertiary: #000000;
+  --color-on-tertiary: #FFFFFF;
+  --color-tertiary-container: #1D1B19;
+  --color-on-tertiary-container: #888380;
+
+  --color-outline: #7D766F;
+  --color-outline-variant: #CEC5BD;
+
+  /* Client Signature Color Palette Experiment */
+  --color-barbie-pink: #F6007B;
+  --color-barbie-pink-light: #FFD6EC;
+  --color-barbie-light: #FFD6EC;
+  --color-stormy-teal: #0B6E69;
+  --color-jungle-green: #00A86B;
+
+  --font-serif: "Morside", var(--font-morside), serif;
+  --font-headline: "Morside", var(--font-morside), serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  --spacing-space-xs: 0.375rem;
+  --spacing-space-sm: 0.75rem;
+  --spacing-space-md: 1.5rem;
+  --spacing-space-lg: 3rem;
+  --spacing-space-xl: 5rem;
+  --spacing-gutter: 2rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-margin: 4rem;
+  --spacing-margin-mobile: 1.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Explicit Utility Classes for Custom Brand Color Variables */
+.bg-barbie-pink {
+  background-color: var(--color-barbie-pink) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.text-barbie-pink {
+  color: var(--color-barbie-pink) !important;
+}
+
+.border-barbie-pink {
+  border-color: var(--color-barbie-pink) !important;
+}
+
+.bg-barbie-pink-light,
+.bg-barbie-light {
+  background-color: var(--color-barbie-pink-light) !important;
+}
+
+.text-barbie-pink-light,
+.text-barbie-light {
+  color: var(--color-barbie-pink-light) !important;
+}
+
+.bg-stormy-teal {
+  background-color: var(--color-stormy-teal) !important;
+}
+
+.text-stormy-teal {
+  color: var(--color-stormy-teal) !important;
+}
+
+.border-stormy-teal {
+  border-color: var(--color-stormy-teal) !important;
+}
+
+.bg-jungle-green {
+  background-color: var(--color-jungle-green) !important;
+}
+
+.text-jungle-green {
+  color: var(--color-jungle-green) !important;
+}
+
+.border-jungle-green {
+  border-color: var(--color-jungle-green) !important;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #FAF9F7;
+    color: #1A1C1B;
+  }
+  body {
+    background-color: #FAF9F7;
+    color: #1A1C1B;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Typography Utility Classes matching Haute Couture Atelier Design System */
+.font-headline,
+.font-serif {
+  font-family: "Morside", var(--font-morside), serif !important;
+}
+
+.font-headline-lg {
+  font-family: "Morside", var(--font-morside), serif !important;
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  font-weight: 400;
+}
+
+.font-headline-md {
+  font-family: "Morside", var(--font-morside), serif !important;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 400;
+}
+
+.font-headline-sm {
+  font-family: "Morside", var(--font-morside), serif !important;
+  font-size: 1.375rem;
+  line-height: 1.875rem;
+  font-weight: 500;
+}
+
+.text-display-lg {
+  font-family: "Morside", var(--font-morside), serif !important;
+  font-size: 4rem;
+  line-height: 4.5rem;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.text-display-md {
+  font-family: "Morside", var(--font-morside), serif !important;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.font-label-caps {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.font-label-sm {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.font-body-lg {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  font-weight: 300;
+}
+
+.font-body-md {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.font-body-sm {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+/* Custom scrollbar suppression for luxury feel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
