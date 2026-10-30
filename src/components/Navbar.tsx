@@ -2,13 +2,43 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { NAV_LINKS } from "@/data/mockData";
+import { NAV_LINKS, NavItem } from "@/data/mockData";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const [currentHash, setCurrentHash] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("bespoke");
+
+  // Synchronize browser window hash for anchor links (e.g. /#bespoke)
+  useEffect(() => {
+    const updateHash = () => {
+      setCurrentHash(window.location.hash);
+    };
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, []);
+
+  // Determine active link based on current route pathname and section hash
+  const isLinkActive = (item: NavItem) => {
+    if (item.href.includes("#")) {
+      const [path, hash] = item.href.split("#");
+      const targetPath = path || "/";
+      if (pathname === targetPath && currentHash === `#${hash}`) {
+        return true;
+      }
+      return false;
+    }
+
+    if (item.href === "/") {
+      return pathname === "/" && !currentHash;
+    }
+
+    return pathname === item.href || pathname.startsWith(`${item.href}/`);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,9 +70,7 @@ export default function Navbar() {
           scrolled ? "backdrop-blur-lg" : ""
         }`}
         style={{
-          backgroundColor: scrolled
-            ? "rgba(251, 34, 142, 0.95)"
-            : "var(--color-barbie-pink)",
+          backgroundColor: "var(--color-barbie-pink)",
         }}
       >
         <div className="h-20 w-full px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 flex items-center justify-between">
@@ -62,12 +90,18 @@ export default function Navbar() {
           {/* Desktop Editorial Navigation with Line Growing Hover (0% -> 100%) */}
           <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
             {NAV_LINKS.map((item) => {
-              const isActive = activeLink === item.id;
+              const isActive = isLinkActive(item);
               return (
-                <a
+                <Link
                   key={item.id}
                   href={item.href}
-                  onClick={() => setActiveLink(item.id)}
+                  onClick={() => {
+                    if (item.href.includes("#")) {
+                      setCurrentHash(`#${item.href.split("#")[1]}`);
+                    } else {
+                      setCurrentHash("");
+                    }
+                  }}
                   className={`font-label-caps text-xs tracking-[0.14em] uppercase py-2 relative group inline-flex flex-col items-center justify-center transition-colors ${
                     isActive
                       ? "text-[#161412] font-semibold"
@@ -81,7 +115,7 @@ export default function Navbar() {
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -174,7 +208,7 @@ export default function Navbar() {
             <div className="my-auto py-8 flex flex-col justify-center">
               <nav className="flex flex-col divide-y divide-black/15">
                 {NAV_LINKS.map((item, index) => {
-                  const isActive = activeLink === item.id;
+                  const isActive = isLinkActive(item);
                   const itemNumber = String(index + 1).padStart(2, "0");
                   return (
                     <motion.div
@@ -188,10 +222,14 @@ export default function Navbar() {
                         ease: [0.16, 1, 0.3, 1],
                       }}
                     >
-                      <a
+                      <Link
                         href={item.href}
                         onClick={() => {
-                          setActiveLink(item.id);
+                          if (item.href.includes("#")) {
+                            setCurrentHash(`#${item.href.split("#")[1]}`);
+                          } else {
+                            setCurrentHash("");
+                          }
                           setMobileMenuOpen(false);
                         }}
                         className="group py-5 sm:py-6 flex items-center justify-between transition-all duration-300 hover:pl-2"
@@ -213,7 +251,7 @@ export default function Navbar() {
                         <span className="material-symbols-outlined text-[#161412] text-[20px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">
                           north_east
                         </span>
-                      </a>
+                      </Link>
                     </motion.div>
                   );
                 })}

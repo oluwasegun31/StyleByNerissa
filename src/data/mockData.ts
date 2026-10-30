@@ -62,11 +62,11 @@ export interface AtelierLocation {
 }
 
 export const NAV_LINKS: NavItem[] = [
-  { id: "bespoke", label: "Atelier Bespoke", href: "#bespoke" },
-  { id: "capsule", label: "Ready-to-Wear", href: "#capsule" },
-  { id: "craft", label: "The Craft", href: "#craft" },
-  { id: "archive", label: "Archive", href: "#archive" },
-  { id: "textiles", label: "Textiles", href: "#textiles" },
+  { id: "collections", label: "Collections & Lookbook", href: "/collections" },
+  { id: "bespoke", label: "Atelier Bespoke", href: "/#bespoke" },
+  { id: "capsule", label: "Ready-to-Wear", href: "/collections" },
+  { id: "craft", label: "The Craft", href: "/#craft" },
+  { id: "textiles", label: "Textiles", href: "/#textiles" },
 ];
 
 export const HERO_DATA = {
@@ -368,4 +368,290 @@ export const ATELIER_LOCATIONS: AtelierLocation[] = [
     schedule: "Mon – Fri: By Private Appt",
   },
 ];
+
+// =========================================================================
+// COLLECTIONS & LOOKBOOK CATALOGUE RAISONNÉ DATA
+// =========================================================================
+
+export interface LookbookItem {
+  id: string;
+  lookNumber: string;
+  title: string;
+  category: "rtw" | "bespoke";
+  department: "evening" | "silks" | "tailoring";
+  price: string;
+  rawPrice: number;
+  provenance: string;
+  badge: string;
+  typeTag: string;
+  statusTag: string;
+  editionNote: string;
+  image: string;
+  swatchImage: string;
+  description: string;
+  fabricDetails: string;
+  constructionDetails: string;
+  careDetails: string;
+}
+
+export const LOOKBOOK_DATA: LookbookItem[] = [
+  {
+    id: "look-01",
+    lookNumber: "Look 01",
+    title: "The Aurelia Silk Column Gown",
+    category: "rtw",
+    department: "silks",
+    price: "$480 USD",
+    rawPrice: 480,
+    provenance: "Mulberry Silk Crêpe · Como, Italy",
+    badge: "100% Silk Charmeuse",
+    typeTag: "Ready-to-Wear",
+    statusTag: "Ready to Ship",
+    editionNote: "Edition 03 of 25 · Sourced from Como, Italy",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBTp1ecTlBhrrPvr-xIGzaX6Fyu_cMNSW7tgt0h12m1zG-s5pWrV5dtG_Syz0JvBxRuMVqmT1VJ_kJ6lWse2b9IwW12KqT7N4-dLJeIeYwi8M3BFjRGRymA4B-XttXVda_LJTnscyriTQxq_FE6cqSXKxmBsufh4E1qKMjIACNDbUX12tpi2SLJDUQlAzYvTINDaRhBgGklJ3iI_kCrWSzvuhr9cvn3S-6Pd2YjQJhEOHifODhH8ka9",
+    swatchImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1WUmuWzNcSrZVRwwYa6yOQYSuSRRLaoBZTpOATKuUU8C8S2athvmjSaI9hHuZfCHu0jDO_F8G29phqfqYeac7Wwffw_XrQW1OwJRkAeAcmgD51IxOySiJ_XTFmgUlWX_495gB97OTYDISdpqFuU6Fwqal1rgVCc7HYvsv4ohfC9NvUpqg7UEWn-0T-1_PCjTsQGG49-0cKV9KyD7Wg5lsnBriv3tR7yG0L5WgVFVnySEcVES_K1sEdEAgg",
+    description:
+      "Mulberry Silk Crêpe · Como, Italy. Features a delicate bias-cut silhouette that elongates the frame with an effortless fluid drape.",
+    fabricDetails:
+      "Woven on vintage mechanical looms in northern Lombardy. Each thread undergoes cold-water scouring to preserve natural lanolin content, granting a warm peach-skin tactile feel.",
+    constructionDetails:
+      "French seams throughout with delicate baby-rolled hems hand-finished with silk thread. Hidden internal stay-tapes anchor the waistline without external boning lines.",
+    careDetails:
+      "Delivered inside a custom organic cotton zippered garment sack with cedar hanger. Eco dry-clean only or steam vertically from a 6-inch distance.",
+  },
+  {
+    id: "look-02",
+    lookNumber: "Look 02",
+    title: "Sculpted Mikado Bridal Corset",
+    category: "bespoke",
+    department: "evening",
+    price: "From $2,400 USD",
+    rawPrice: 2400,
+    provenance: "Mikado Silk & Hand-Wired Boning · London Studio",
+    badge: "Hand-Basted Canvas",
+    typeTag: "Bespoke Archive",
+    statusTag: "Commission Only",
+    editionNote: "Private Atelier Commission · 6–8 Weeks Crafting",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuACwGkWvTKvIvu6TU9CB_XhWfFlSEfGjIxIz27gyMCpo-yawcmtYEs5aBktzHYc7-4jSEAoqcXzngffOGCnhZ9oQKkVg_muee5UTOiMhGTXhacOJJGRVQORVC-yG3ZPmhKFbWfZd1p0sYBNpiMK00j_oYq83H9NV3REF-UMFrwNj-PGphuAPsTjl1l5OqmTfTrzIupVpeGci6ekxdnb66YLlGnkQtHkmzlliDov-QNf6hgPERl86AAs",
+    swatchImage:
+      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Architectural corset tailored from heavyweight Italian silk mikado, engineered with 18 spiral steel bones and hand-felled French seams.",
+    fabricDetails:
+      "420 GSM pure silk mikado with a sculptural structured hand and luminous semi-matte sheen, sourced from generational Como weavers.",
+    constructionDetails:
+      "Three muslin fittings precede final assembly. Hand-padded chest piece with horsehair canvas stabilization and double-faced coutil core.",
+    careDetails:
+      "Archival acid-free storage box provided with bespoke hanger. Professional specialist couture clean only.",
+  },
+  {
+    id: "look-03",
+    lookNumber: "Look 03",
+    title: "Double-Faced Wool Crepe Blazer",
+    category: "rtw",
+    department: "tailoring",
+    price: "$520 USD",
+    rawPrice: 520,
+    provenance: "Super 130s English Wool · Yorkshire Mills",
+    badge: "Architectural Shoulder",
+    typeTag: "Ready-to-Wear",
+    statusTag: "Ready to Ship",
+    editionNote: "Edition 07 of 30 · Small-Batch Tailoring",
+    image:
+      "https://lh3.googleusercontent.com/aida/AEtjO1UJJLLuReMMGkQRARk7UmKdGvzIUlJHIk3wOL-veHj7NHZDD5QBIFoGPonxY0nTBKWlCIAH0dCZbxCH9jFRhZKsw_SqnPBCE6SUGbgmcdcE_GwzNlty3eryLOpaUI1wF94FV3Jt1b8xZ0APpCCHMaDog5EzGzxVBmGbJqL3lYgqSPUGdO2rYSxL68or8Ldo_nbjWXP2Q57CmPjlYi1ZYG9aRwUhloQHdqiZ_L4duSS8uC5LUH9VltCcTg",
+    swatchImage:
+      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Relaxed single-breasted jacket tailored with a soft, roped shoulder line and hand-stitched pick lapels for enduring boardroom-to-evening presence.",
+    fabricDetails:
+      "Spun from Super 130s merino fleece woven in Huddersfield, offering high wrinkle recovery and breathable thermal regulation.",
+    constructionDetails:
+      "Floating half-canvas chest construction allows the jacket to conform naturally to the wearer’s torso over time.",
+    careDetails:
+      "Brush down with natural horsehair after each wear. Steam to refresh drape.",
+  },
+  {
+    id: "look-04",
+    lookNumber: "Look 04",
+    title: "Hand-Beaded French Tulle Gala Robe",
+    category: "bespoke",
+    department: "evening",
+    price: "From $3,800 USD",
+    rawPrice: 3800,
+    provenance: "Hand-Applied Micro Crystals · Paris Atelier",
+    badge: "Archival Beadwork",
+    typeTag: "Bespoke Archive",
+    statusTag: "Commission Only",
+    editionNote: "Sole Masterpiece Commission · 120 Hours Embroidery",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAmOHZILtLaMMya1s8jFRrO4ZfgxCmbwDsFs-OR09WInQx88OTeLiZr7uHIRmB4JzAjPi4m0AAGAzM9VBRFjO57noRVPYqaYGbB06j63kG-fEDKnXHhCwaEoGQTvSbJ73QyOzjzffSfUU1TozREzPLy8aaDiBwZ2JRLGQXZ5d5XWT-__Za09VG5tgOqBn6Ozsxeo9wXuHLSSNW1ICzRB5Yrs4sxH6GjFHVRNA9XlFGTAVgp8rrgnS4G",
+    swatchImage:
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Ethereal floor-length gala robe featuring custom constellations of micro seed pearls and light-catching crystals hand-sewn onto multi-layered point d'esprit tulle.",
+    fabricDetails:
+      "Heritage Lyon point d'esprit tulle lined in sheer mulberry silk georgette for weightless fluidity.",
+    constructionDetails:
+      "Individually hand-hooked Lunéville embroidery with over 18,000 crystal beads applied by master artisans in Paris.",
+    careDetails:
+      "Store flat in archival muslin box. Never hang on wire. Specialist museum conservator clean only.",
+  },
+  {
+    id: "look-05",
+    lookNumber: "Look 05",
+    title: "Layered Silk Organza Trench",
+    category: "rtw",
+    department: "tailoring",
+    price: "$1,450 USD",
+    rawPrice: 1450,
+    provenance: "Italian Silk Organza · London Atelier",
+    badge: "Translucent Drape",
+    typeTag: "Ready-to-Wear",
+    statusTag: "Edition of 12",
+    editionNote: "Edition 04 of 12 · Numbered Collectors Piece",
+    image:
+      "https://lh3.googleusercontent.com/aida/AEtjO1Xu_qIYZgm5zTfb3qtEJKoyQnIG-6biUwta85nCtyFBSq0AYvnOepTtXhlT5pbwRPLgCA8HXqQ74yjVzEeKGECk3AxK0JW_sUfL6H25rPw0I0Pg4nxyqbeqcefWmrNsP0tj7JeaxKS3fL1KcvjTcy86Cp5f2PbUCNJXBFHtfyul6GYGf6M-K-B3NwhmLGFqC2ClKGUb43Uo2--cq_PVclsaFHjIy3dWP_jHb9kjxPR7golgJzGGJerP4_I",
+    swatchImage:
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80",
+    description:
+      "A statement outerwear piece crafted in crisp, glass-like Italian silk organza with hand-carved horn buttons and storm flap architectural detailing.",
+    fabricDetails:
+      "Triple-washed crisp silk organza with natural body and luminosity that creates subtle optical moiré effects as you move.",
+    constructionDetails:
+      "Bound French seams throughout with hand-turned collar and unlined interior for pure structural transparency.",
+    careDetails:
+      "Steam gently with distilled water. Store away from direct sunlight.",
+  },
+  {
+    id: "look-06",
+    lookNumber: "Look 06",
+    title: "The Bias-Cut Slip Dress",
+    category: "rtw",
+    department: "silks",
+    price: "$640 USD",
+    rawPrice: 640,
+    provenance: "Heavy 22mm Mulberry Silk Satin · Milan",
+    badge: "22mm Heavy Satin",
+    typeTag: "Ready-to-Wear",
+    statusTag: "Ready to Ship",
+    editionNote: "Continuous Studio Edition · Small-Batch Dyed",
+    image:
+      "https://lh3.googleusercontent.com/aida/AEtjO1Uq9wrj83VGoKGKK-eJh133q56j-qj-6ofz4cfmpkP7GBTn9n3LBVlxa1ghEQcBlrJW8JArZR1azStX1MLs1wt1gQINWfMvHcCesbdH-NJnpkNJXjWwBwWwKCrjulDLjZ0vseH7Jh7NMEVhx7ZNryuP6CyOWQsKa0xdo3GMoOls_zsogcr-GsCKL9vlUNKQm7TuWgCOdjSfKZZvxCkVEDyFJO21-8nmUid6zaRA2i5Y7GNBwkRJQs4Yqfw",
+    swatchImage:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+    description:
+      "A modern wardrobe essential cut strictly on the true bias at 45 degrees, allowing the weighted silk satin to ripple and hug the form like liquid glass.",
+    fabricDetails:
+      "Heavyweight 22mm Mulberry silk charmeuse with high-luster satin face and matte crêpe back.",
+    constructionDetails:
+      "Cut individually by hand to align fabric tension, with micro spaghetti straps and hand-rolled baby hem.",
+    careDetails:
+      "Hand wash cold with pH-neutral silk wash or eco dry clean. Iron on reverse while damp.",
+  },
+  {
+    id: "look-07",
+    lookNumber: "Look 07",
+    title: "The Architectural Pleated Trousers",
+    category: "rtw",
+    department: "tailoring",
+    price: "$380 USD",
+    rawPrice: 380,
+    provenance: "English Worsted Wool · Yorkshire Mills",
+    badge: "Deep Double Pleats",
+    typeTag: "Ready-to-Wear",
+    statusTag: "Ready to Ship",
+    editionNote: "Edition 11 of 40 · Tailored Studio Batch",
+    image:
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85",
+    swatchImage:
+      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80",
+    description:
+      "High-rise trousers with deep forward double pleats, generous straight leg drape, and adjustable side cinch tabs.",
+    fabricDetails:
+      "Crisp 280 GSM high-twist tropical worsted wool with natural stretch and sharp crease retention.",
+    constructionDetails:
+      "Curved waistband with internal curtain lining and horn buttons.",
+    careDetails: "Dry clean only. Press with a damp pressing cloth.",
+  },
+  {
+    id: "look-08",
+    lookNumber: "Look 08",
+    title: "Sculpted Backless Evening Gown",
+    category: "bespoke",
+    department: "evening",
+    price: "From $3,200 USD",
+    rawPrice: 3200,
+    provenance: "Silk Double Georgette · Paris Studio",
+    badge: "Architectural Drape",
+    typeTag: "Bespoke Archive",
+    statusTag: "Commission Only",
+    editionNote: "Private Atelier Commission · 40 Hours Draping",
+    image:
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85",
+    swatchImage:
+      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Dramatic plunging cowl-back silhouette suspended from delicate cord ties, pooled into a fluid circular train.",
+    fabricDetails:
+      "36mm pure silk double georgette with a powdery matte drape.",
+    constructionDetails:
+      "Engineered with internal waist stay to support the open back securely.",
+    careDetails: "Specialist couture cleaning only.",
+  },
+  {
+    id: "look-09",
+    lookNumber: "Look 09",
+    title: "Minimalist Cashmere Kimono Wrap",
+    category: "rtw",
+    department: "tailoring",
+    price: "$890 USD",
+    rawPrice: 890,
+    provenance: "Pure Mongolian Cashmere · Biella, Italy",
+    badge: "100% Mongolian Cashmere",
+    typeTag: "Ready-to-Wear",
+    statusTag: "Limited Edition",
+    editionNote: "Edition 02 of 15 · Hand-Finished Borders",
+    image:
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
+    swatchImage:
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Unstructured cocoon wrap coat featuring dropped shoulders, wide sleeves, and a matching self-tie sash.",
+    fabricDetails:
+      "460 GSM double-faced pure cashmere with velvety ripple finish.",
+    constructionDetails:
+      "Hand-split seams throughout with invisible needlework.",
+    careDetails: "Eco dry clean only. Store folded in cedar drawer.",
+  },
+];
+
+export const LOOKBOOK_INTERSTITIAL = {
+  chapter: "Craft Note / No. 04 — London Atelier",
+  title: "Architectural Drape & The Anatomic Canvas",
+  quote:
+    "“A garment should feel structured on the body without restricting a single breath. Every corset toile goes through three separate muslin fittings before touching real silk.”",
+  author: "Nerissa V.",
+  authorRole: "Founder & Creative Director · 42 Hours Hand-Canvassing",
+  image:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuCr9BoblrWoct3Ycm2htBhllqpT-LdVYaNV0Kv_325ZfnVrNzq-mr2oodiRVsMFAcMdmL5ZppyE26tKa81d0P7vKatzwaSvyOFWUdGb99V0m7CEiVt8fjpTUWjg1MoOJyRzbZGuo1OmFiouVMiEhoVR4pHw2Z6WMaKeDkFX7S08UIS0i__e43oPATmkws6xuR2tfXHZcDSUH6vaAvrJtl2ozmGxsXI0ppTyb54DUcY6vKQp8BI8Rw_q",
+  caption: "Fig. 4.2 — Internal Basting & Spiral Steel Ribbing",
+  linkText: "Explore the Muslin Toile Archives",
+  linkHref: "/#bespoke",
+};
+
+export const LOOKBOOK_COMMISSION_BANNER = {
+  tag: "One-of-a-Kind Commissions",
+  title: "Dreaming of a bespoke piece for your next event?",
+  description:
+    "We take on a strictly limited number of custom commissions each month for bridal, black-tie, and red-carpet appearances. Each journey begins with personal posture analysis and croquis illustration.",
+  primaryCta: { label: "Book a Fitting Consultation →", href: "#booking" },
+  secondaryCta: {
+    label: "Browse Past Client Silhouettes",
+    href: "/#client-silhouettes",
+  },
+};
+
 

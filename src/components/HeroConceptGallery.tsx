@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { HERO_DATA } from "@/data/mockData";
 
 export default function HeroConceptGallery() {
@@ -178,13 +179,13 @@ export default function HeroConceptGallery() {
 
           {/* Mobile CTA Button: ALWAYS LAST below all images */}
           <div className="w-full pt-1 flex justify-center">
-            <a
-              href="#capsule"
+            <Link
+              href="/collections"
               className="w-full sm:w-auto max-w-sm whitespace-nowrap bg-[#161412] text-white font-label-caps text-xs sm:text-sm py-3.5 px-8 rounded-full inline-flex items-center justify-center gap-2.5 hover:bg-stormy-teal hover:shadow-xl transition-all shadow-md tracking-wider cursor-pointer"
             >
               <span>Explore Collections</span>
               <span className="material-symbols-outlined text-[16px]">north_east</span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -271,15 +272,15 @@ export default function HeroConceptGallery() {
             </div>
 
             {/* Docked Black Capsule CTA Button with NON-WRAPPING Text */}
-            <a
-              href="#capsule"
+            <Link
+              href="/collections"
               className="w-full whitespace-nowrap shrink-0 bg-[#161412] text-white font-label-caps text-xs sm:text-[13px] py-3.5 px-4 rounded-full inline-flex items-center justify-center gap-2 hover:bg-stormy-teal hover:shadow-xl transition-all duration-300 shadow-md group cursor-pointer tracking-wider"
             >
               <span className="whitespace-nowrap">Explore Collections</span>
               <span className="material-symbols-outlined text-[15px] shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
                 north_east
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* COLUMN 4: Continuous Tall Card (Right File-Tab Silhouette) */}
