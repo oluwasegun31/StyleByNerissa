@@ -63,10 +63,8 @@ export interface AtelierLocation {
 
 export const NAV_LINKS: NavItem[] = [
   { id: "collections", label: "Collections & Lookbook", href: "/collections" },
-  { id: "bespoke", label: "Atelier Bespoke", href: "/#bespoke" },
-  { id: "capsule", label: "Ready-to-Wear", href: "/collections" },
-  { id: "craft", label: "The Craft", href: "/#craft" },
-  { id: "textiles", label: "Textiles", href: "/#textiles" },
+  { id: "bespoke", label: "Atelier Bespoke", href: "/bespoke" },
+  { id: "booking", label: "Book Consultation", href: "/booking" },
 ];
 
 export const HERO_DATA = {
@@ -647,11 +645,275 @@ export const LOOKBOOK_COMMISSION_BANNER = {
   title: "Dreaming of a bespoke piece for your next event?",
   description:
     "We take on a strictly limited number of custom commissions each month for bridal, black-tie, and red-carpet appearances. Each journey begins with personal posture analysis and croquis illustration.",
-  primaryCta: { label: "Book a Fitting Consultation →", href: "#booking" },
+  primaryCta: { label: "Book a Fitting Consultation →", href: "/booking" },
   secondaryCta: {
-    label: "Browse Past Client Silhouettes",
-    href: "/#client-silhouettes",
+    label: "Explore Bespoke Atelier Service",
+    href: "/bespoke",
   },
 };
+
+// =========================================================================
+// ATELIER BESPOKE SERVICE SPECIFICATION & DATA
+// =========================================================================
+
+export interface BespokeStepItem {
+  stepNumber: string;
+  session: string;
+  title: string;
+  badge: string;
+  description: string;
+  duration: string;
+}
+
+export const BESPOKE_STEPS: BespokeStepItem[] = [
+  {
+    stepNumber: "01",
+    session: "Session 01",
+    title: "Silhouette Direction",
+    badge: "34 Posture Metrics",
+    description:
+      "Personal anatomy mapping, posture diagnosis, watercolor croquis generation, and initial silk/crepe swatch curation overseen by Nerissa.",
+    duration: "Day 01",
+  },
+  {
+    stepNumber: "02",
+    session: "Week 02",
+    title: "Pattern Drafting",
+    badge: "Unique Paper Sloper",
+    description:
+      "Individual 2D blueprint drafted exclusively for your silhouette. No commercial sizing or standard blocks are ever utilized in our atelier.",
+    duration: "Week 02",
+  },
+  {
+    stepNumber: "03",
+    session: "Week 3–4",
+    title: "The Muslin Toile",
+    badge: "Calico Sculpture",
+    description:
+      "Trial garment cut in raw unbleached calico muslin. Volume, chest pitch, neckline drape, and balance lines are sculpted directly on your physical body.",
+    duration: "Weeks 3–4",
+  },
+  {
+    stepNumber: "04",
+    session: "Week 5–6",
+    title: "Internal Architecture",
+    badge: "Hand Canvassing",
+    description:
+      "Pure silk organza waist stay, floating horsehair canvas chest piece, and spiral steel boning shaped by hand to support drape without rigid compression.",
+    duration: "Weeks 5–6",
+  },
+  {
+    stepNumber: "05",
+    session: "Week 7–8",
+    title: "Master Delivery",
+    badge: "Archival Garment Case",
+    description:
+      "Final fitting in master silks, completed with hand-felled French seams, monogrammed lining, and delivered in our cedar-finished archival box.",
+    duration: "Weeks 7–8",
+  },
+];
+
+export interface BespokeTier {
+  id: string;
+  name: string;
+  subtitle: string;
+  startingPrice: string;
+  leadTime: string;
+  fittings: string;
+  description: string;
+  isFeatured?: boolean;
+  features: string[];
+}
+
+export const BESPOKE_TIERS: BespokeTier[] = [
+  {
+    id: "separates",
+    name: "Evening & Tailored Separates",
+    subtitle: "Architectural Suiting & Gowns",
+    startingPrice: "$2,400 USD",
+    leadTime: "4–6 Weeks",
+    fittings: "2 Muslin Toile Fittings",
+    description:
+      "Ideal for architectural wool crepe trousers, tailored tuxedo blazers, sculpted waistcoats, and bias-cut silk slip gowns.",
+    features: [
+      "34-Point Anthropometric Posture Mapping",
+      "Single-Client Individual Paper Sloper",
+      "Hand-Canvassed Interior & Internal Stays",
+      "Lifetime Seam & Silhouette Maintenance",
+    ],
+  },
+  {
+    id: "gala",
+    name: "Gala & Red Carpet Couture",
+    subtitle: "Floor-Sweeping Architecture",
+    startingPrice: "$4,800 USD",
+    leadTime: "6–8 Weeks",
+    fittings: "3 Muslin Toile Fittings",
+    description:
+      "Tailored column gowns, floor-sweeping silk cape overlays, architectural corset evening robes, and hand-draped fluid crepe.",
+    isFeatured: true,
+    features: [
+      "Dedicated Atelier Creative Director Consultation",
+      "Internal Spiral Steel Corset Architecture",
+      "Sourced-to-Order Como Silks & French Tulle",
+      "Private Courier Delivery in Archival Cedar Box",
+    ],
+  },
+  {
+    id: "bridal",
+    name: "Bridal & Ceremonial",
+    subtitle: "Heirloom Museum-Grade Commissions",
+    startingPrice: "$7,500 USD",
+    leadTime: "8–12 Weeks",
+    fittings: "4–5 Fittings (London / Paris / Travel)",
+    description:
+      "One-of-a-kind wedding gowns, reception silhouette changes, embroidered veil architecture, and multi-tier ceremony ensembles.",
+    features: [
+      "Unlimited Calico Muslin Fitting Revisions",
+      "Custom Hand-Beaded French Lace / Pearl Details",
+      "Emergency Traveling Atelier Access for Event Weekend",
+      "Heirloom Museum-Grade Preservation Box Included",
+    ],
+  },
+];
+
+export const BESPOKE_ARCHITECTURE = [
+  {
+    title: "Internal Corsetry & Waist Stays",
+    tag: "Ergonomic Sculpting",
+    description:
+      "100% Cotton-sheathed spiral steel ribs, grosgrain stay ribbons, and ergonomic boning channels that contour the waist effortlessly without restrictive tension.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCYaQ1mX0SavnW9-JWNyxQwsVZ3IpRg1zsGc1pWkdjwHgx5hTaKE2aBh9O4_ZpXs4twU3x1A_qefaCD4NpYglkQepp72Moy-Me0J0dyYorhPglz31p3IUfSCTddMrcVF9eiAe56qfG0lqe9M9UUg9oiaXK0CplOp76aGfiOuy9mt1CWH7YgWXqynb52DcZH5Po-hoQoctKydQEWMmshQJNLPjfwa1CVCJk7u7q_Sw5WkE1puSpOwlwI",
+    stat: "14 Hand-Basted Boning Channels",
+  },
+  {
+    title: "Hand-Basted Horsehair Canvassing",
+    tag: "Natural Memory",
+    description:
+      "Floating natural wool and horsehair interlinings basted with thousands of loose pad-stitches. The chest piece molds to body warmth over time.",
+    image:
+      "https://lh3.googleusercontent.com/aida/AEtjO1XWtZqJ0R4yNvJ3cIxLEWo_3QPXpAO1_K2g3idVPOzPT3JoDhGaZ73q0M63G0gjk_JSZm5V9tcxoPFq3aXU0ckUJ4vv5Xxbv8zwYywqvFBjhhm1_JMSOi3HASgmcTLFF7C3q-Hd7iZY2kZ3GYuRUJJ3ZOjEdCr-UYwdJvReffHDaLea3tyxnCzFt50_bBjwvpuiHTX0OY1l5D99RQtquZabZNuZJ2t1ytgLARL8g2xV-gL-HQ4xaCJ3fJw",
+    stat: "100% Wool & Natural Horsehair",
+  },
+  {
+    title: "French Seams & Invisible Needlework",
+    tag: "Pure Finish",
+    description:
+      "Every seam is fully encased—raw edges are strictly banned. 12 stitches per inch executed with fine German silk thread for weightless structural fluidity.",
+    image:
+      "https://lh3.googleusercontent.com/aida/AEtjO1WUmuWzNcSrZVRwwYa6yOQYSuSRRLaoBZTpOATKuUU8C8S2athvmjSaI9hHuZfCHu0jDO_F8G29phqfqYeac7Wwffw_XrQW1OwJRkAeAcmgD51IxOySiJ_XTFmgUlWX_495gB97OTYDISdpqFuU6Fwqal1rgVCc7HYvsv4ohfC9NvUpqg7UEWn-0T-1_PCjTsQGG49-0cKV9KyD7Wg5lsnBriv3tR7yG0L5WgVFVnySEcVES_K1sEdEAgg",
+    stat: "12 Precision Stitches Per Inch",
+  },
+];
+
+export const BESPOKE_FAQS = [
+  {
+    question: "How far in advance of my event should I commission?",
+    answer:
+      "We recommend commissioning 8 to 12 weeks before your date. For weddings and major galas, 3 to 6 months provides ideal fabric-sourcing latitude. Express 4-week creation slots are available on request subject to studio capacity.",
+  },
+  {
+    question: "Can I commission a bespoke piece if I live outside the UK/France?",
+    answer:
+      "Yes. Over 40% of our patrons reside in New York, Geneva, Zurich, Tokyo, and the Middle East. Through our Global Virtual Atelier, we dispatch precision calico toile kits with measurement calipers and conduct private video fittings.",
+  },
+  {
+    question: "What happens if my posture or body measurements change during fittings?",
+    answer:
+      "Because we construct our toiles with generous 2-inch internal seam allowances and individual calico trials, your garment is continuously recalibrated up to the final hand-stitching stage.",
+  },
+  {
+    question: "Is the initial consultation fee credited toward the commission?",
+    answer:
+      "Yes, 100% of your $250 consultation fee is automatically credited toward your commission total when you confirm your bespoke project.",
+  },
+];
+
+// =========================================================================
+// PRIVATE CONSULTATION & BOOKING DATA
+// =========================================================================
+
+export const BOOKING_FORMATS = [
+  {
+    id: "in-studio",
+    title: "In-Studio Consultation",
+    location: "London Mayfair or Paris Studio",
+    tag: "Flagship Salons",
+    description:
+      "A 60-minute private salon appointment. Enjoy champagne hospitality, tactile drape exploration across 300+ fabric bolts, and personal posture analysis with Nerissa.",
+    fee: "$250 USD",
+    feeNote: "100% Credited toward commission",
+  },
+  {
+    id: "virtual-atelier",
+    title: "Global Virtual Atelier",
+    location: "Worldwide Via Private Video Suite",
+    tag: "International Patrons",
+    description:
+      "A high-definition 1-on-1 virtual fitting. We dispatch curated fabric swatches and measurement calipers to your residence prior to our session.",
+    fee: "$200 USD",
+    feeNote: "100% Credited toward commission",
+  },
+];
+
+export const BOOKING_CATEGORIES = [
+  {
+    id: "bridal",
+    title: "Bridal & Ceremonial",
+    subtitle: "Lead time: 8–12 weeks",
+    desc: "Bespoke wedding gowns, civil ceremony ensembles, reception silhouettes, and veil architecture.",
+    icon: "favorite",
+  },
+  {
+    id: "gala",
+    title: "Gala & Black-Tie Couture",
+    subtitle: "Lead time: 6–8 weeks",
+    desc: "Floor-length evening columns, sculpted corsets, architectural drapes, and high-fashion opera coats.",
+    icon: "celebration",
+  },
+  {
+    id: "tailoring",
+    title: "Architectural Suiting & Separates",
+    subtitle: "Lead time: 4–6 weeks",
+    desc: "Hand-canvassed blazers, wide-leg wool crepe trousers, sculpted waistcoats, and silk trench coats.",
+    icon: "styler",
+  },
+  {
+    id: "archival",
+    title: "Archival Re-Imagining",
+    subtitle: "Lead time: 6–8 weeks",
+    desc: "Bespoke re-creation or contemporary elevation of an archival vintage silhouette with modern drape.",
+    icon: "history_edu",
+  },
+];
+
+export const BOOKING_DATES = [
+  { day: "Thu", date: "Nov 06", slots: ["11:00 AM", "02:30 PM", "05:00 PM"] },
+  { day: "Fri", date: "Nov 07", slots: ["10:30 AM", "01:30 PM"] },
+  { day: "Sat", date: "Nov 08", slots: ["11:00 AM", "03:00 PM", "05:30 PM"] },
+  { day: "Tue", date: "Nov 11", slots: ["10:00 AM", "02:00 PM"] },
+  { day: "Wed", date: "Nov 12", slots: ["11:30 AM", "04:00 PM"] },
+  { day: "Thu", date: "Nov 13", slots: ["01:00 PM", "03:30 PM", "06:00 PM"] },
+];
+
+export const ATELIER_POLICIES = [
+  {
+    title: "100% Consultation Credit",
+    desc: "Your full consultation deposit is applied directly to the balance of your completed commission invoice.",
+    icon: "verified",
+  },
+  {
+    title: "Flexible Rescheduling",
+    desc: "Private patrons may reschedule appointments up to 48 hours prior without penalty or loss of deposit credit.",
+    icon: "event_available",
+  },
+  {
+    title: "Fitting Preparation Guidance",
+    desc: "We recommend bringing the undergarments and heel height you anticipate wearing with your bespoke creation.",
+    icon: "tune",
+  },
+];
+
 
 

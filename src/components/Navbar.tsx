@@ -122,12 +122,12 @@ export default function Navbar() {
 
           {/* Right Action Icons & Desktop Fitting CTA */}
           <div className="flex items-center gap-4 sm:gap-6">
-            <a
-              href="#booking"
+            <Link
+              href="/booking"
               className="hidden lg:inline-flex items-center justify-center bg-stormy-teal text-white font-label-caps text-xs uppercase rounded-full px-6 py-2.5 transition-all duration-300 hover:brightness-110 shadow-sm"
             >
               Book Fitting
-            </a>
+            </Link>
 
             {/* Shopping Bag Icon with Counter */}
             <button
@@ -268,8 +268,8 @@ export default function Navbar() {
                 }}
                 className="pt-8"
               >
-                <a
-                  href="#booking"
+                <Link
+                  href="/booking"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full inline-flex items-center justify-center bg-stormy-teal text-white font-label-caps text-xs uppercase tracking-[0.16em] rounded-full py-4 transition-colors hover:brightness-110 shadow-md gap-2 font-semibold"
                 >
@@ -277,7 +277,7 @@ export default function Navbar() {
                   <span className="material-symbols-outlined text-[16px]">
                     arrow_forward
                   </span>
-                </a>
+                </Link>
               </motion.div>
             </div>
 
