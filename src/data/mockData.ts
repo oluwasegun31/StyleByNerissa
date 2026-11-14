@@ -14,6 +14,7 @@ export interface CapsuleProduct {
   material: string;
   fitNote: string;
   image: string;
+  hoverImage: string;
   altText: string;
 }
 
@@ -38,6 +39,7 @@ export interface TextileSwatch {
   drape: string;
   lusterOrFinish: { label: string; value: string };
   image: string;
+  hoverImage: string;
 }
 
 export interface ClientReview {
@@ -92,51 +94,29 @@ export const CREDO_DATA = {
   pillars: [
     {
       num: "01",
-      columnHeader: "In-progress",
-      columnIcon: "circle" as const,
-      tagStatus: "In-progress",
-      tagPriority: { label: "Low Tension", tone: "neutral" as const },
+      spec: "34 Anatomical Points",
+      highlight: "Draft Muslin Toile",
       title: "Proportional Architecture",
       description:
         "Every gown and suit begins with micro-anatomical posture analysis and custom draft muslins made precisely to the client's line.",
-      date: "Nov 2, 2026",
-      avatars: [
-        { label: "PA", color: "bg-[#e8e1dd] text-[#1a1c1b]" },
-        { label: "N", color: "bg-[#161412] text-white" },
-      ],
       isHero: false,
     },
     {
       num: "02",
-      columnHeader: "To-do",
-      columnIcon: "dashed" as const,
-      tagStatus: "To-do",
-      tagPriority: { label: "High Drape", tone: "high" as const },
+      spec: "100% Floating Horsehair",
+      highlight: "Como Silk & Biella Wool",
       title: "Hand-Basted Canvassing",
       description:
         "Traditional horsehair chest pieces, hand-felled French seams, and pure silk linings that respond naturally to bodily temperature.",
-      date: "Oct 12, 2026",
-      avatars: [
-        { label: "N", color: "bg-[#161412] text-white" },
-        { label: "MT", color: "bg-[#4c4640] text-white" },
-        { label: "CL", color: "bg-[#cec5bd] text-[#1a1c1b]" },
-      ],
       isHero: true,
     },
     {
       num: "03",
-      columnHeader: "Review",
-      columnIcon: "check" as const,
-      tagStatus: "Review",
-      tagPriority: { label: "Medium Fit", tone: "warm" as const },
+      spec: "London · Paris · Virtual",
+      highlight: "Two-Continent Salons",
       title: "Dual Fitting Workflows",
       description:
         "Private multi-session Mayfair atelier appointments paired seamlessly with global digital measurement calipers and courier toiles.",
-      date: "Nov 15, 2026",
-      avatars: [
-        { label: "FD", color: "bg-[#e8e1dd] text-[#1a1c1b]" },
-        { label: "N", color: "bg-[#161412] text-white" },
-      ],
       isHero: false,
     },
   ],
@@ -146,39 +126,45 @@ export const CAPSULE_PRODUCTS: CapsuleProduct[] = [
   {
     id: "slip-dress",
     title: "The Bias-Cut Slip Dress",
-    price: "$840 USD",
+    price: "$840",
     category: "silks",
-    badge: "100% Mulberry Silk",
-    material: "Mulberry Silk Crêpe de Chine · Ivory Alabaster",
+    badge: "mulberry silk",
+    material: "como silk · made to measure",
     fitNote: "Made to Measure",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBli5jNqU1w6u8ToAdYtMHyJPkHAXOpz07M2uKjvrf7PhLkLf9GydNzdeA08wD9dhNxCdbTUq0SAeoFohXcPZOgIJ2eGQOYvIsug2-mp_Tm4erXp_82b-k54_21FpNNlxt2x6d_jXXDc_1Ue3AfnMWn-_e3dWYlpykF7K1jQv7wF2QVZ4Redndlmgk9PnLz90Koyjq27Fd1JBBHzCcTmgkkQSQD0YKsdg-gxt5iqvecLPFdIiHC1mVP",
+    hoverImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1Uq9wrj83VGoKGKK-eJh133q56j-qj-6ofz4cfmpkP7GBTn9n3LBVlxa1ghEQcBlrJW8JArZR1azStX1MLs1wt1gQINWfMvHcCesbdH-NJnpkNJXjWwBwWwKCrjulDLjZ0vseH7Jh7NMEVhx7ZNryuP6CyOWQsKa0xdo3GMoOls_zsogcr-GsCKL9vlUNKQm7TuWgCOdjSfKZZvxCkVEDyFJO21-8nmUid6zaRA2i5Y7GNBwkRJQs4Yqfw",
     altText:
       "Chic woman wearing a fluid ivory bias-cut cowl-neck mulberry silk slip maxi dress in a sunlit warm loft studio",
   },
   {
     id: "crepe-blazer",
     title: "Architectural Crepe Blazer",
-    price: "$1,280 USD",
+    price: "$1,280",
     category: "tailoring",
-    badge: "Limited Edition (12 Made)",
-    material: "Bonded Italian Wool Crepe · Roasted Espresso",
+    badge: "atelier pick",
+    material: "biella wool · tailoring",
     fitNote: "Runs True to Fit",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAkoLGUZk-X-3IpHaa1hCopr83xPmTNfIOPdmwjCVtC8e2wY0TjvXYbj6UEQjg586mGVSwiKd4oNHn414qT_FTVgzIavKYy9eNFA1nb7rrCh4zO04EpBl-JapAqswjBOcakEvD8_P1ji_zfnjQPRKENPtQC0KyWMdwuCRuM0ijKtKJZHVecT6Rr8rEw4QZgq6JFd_b_c40AxTvU-Beybfh63X0LqAi-WJN1lIXyPKYnrFoRBmrdEqY4",
+    hoverImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1UJJLLuReMMGkQRARk7UmKdGvzIUlJHIk3wOL-veHj7NHZDD5QBIFoGPonxY0nTBKWlCIAH0dCZbxCH9jFRhZKsw_SqnPBCE6SUGbgmcdcE_GwzNlty3eryLOpaUI1wF94FV3Jt1b8xZ0APpCCHMaDog5EzGzxVBmGbJqL3lYgqSPUGdO2rYSxL68or8Ldo_nbjWXP2Q57CmPjlYi1ZYG9aRwUhloQHdqiZ_L4duSS8uC5LUH9VltCcTg",
     altText:
       "High-fashion model wearing an architectural deep espresso brown wool crepe power suit with sculpted waist",
   },
   {
     id: "organza-trench",
     title: "Bespoke Layered Trench",
-    price: "$1,650 USD",
+    price: "$1,650",
     category: "outerwear",
-    badge: "Atelier Pre-Order",
-    material: "Silk Organza & Taffeta · Alabaster Cream",
+    badge: "edition of 12",
+    material: "kyoto organza · outerwear",
     fitNote: "Custom Sized",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDbcj_9TAGN3bHRsyfzqtvPBScFOq84cJVcmKKc8VzfOgYru7CER6cgOGsimdjcrHYeOaD8pjj6zlDGcHadYJ6pnxd4r5TfspLGnurooi8BVXTMzWMlWBXro2f-JzDgbXRN86K8AENYJm3ITIE6XMHzReyK4xns7B-pLdD1J_DqKk-BwPGquqWn7inChyr-lTQFkN09IQ4pVOPDUgpeRTNIB1HnWHMLa2lGz6GZkzd3broSdZQXwcyH",
+    hoverImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1Xu_qIYZgm5zTfb3qtEJKoyQnIG-6biUwta85nCtyFBSq0AYvnOepTtXhlT5pbwRPLgCA8HXqQ74yjVzEeKGECk3AxK0JW_sUfL6H25rPw0I0Pg4nxyqbeqcefWmrNsP0tj7JeaxKS3fL1KcvjTcy86Cp5f2PbUCNJXBFHtfyul6GYGf6M-K-B3NwhmLGFqC2ClKGUb43Uo2--cq_PVclsaFHjIy3dWP_jHb9kjxPR7golgJzGGJerP4_I",
     altText:
       "Editorial look of woman in sheer layered silk organza trench coat with structured puff sleeves and tailored lapel",
   },
@@ -237,6 +223,8 @@ export const TEXTILE_ARCHIVE: TextileSwatch[] = [
     lusterOrFinish: { label: "Luster", value: "Subdued Candlelight" },
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuA2zEH3mEn1FspApySaeQnODpvlYgUXm-cUyJphe3jU1RSig58FsFMm-MRWWQB6MaF295EQw7RDYOm1xRO_PMlHlMf4oXoy9uKdCBB6p7nDBPfQ_fVSj7tglaEL_E6bHSzNiy48zxAHvECHKjsBV5cp6bkUKzkuPUZwk8jXHNbxcI_AffaGno7H8deYaf-arwz_AS7CpIsXhTrW7W4EwkGnglpwNkYZGHtGfV5V9z2P4RvSJs_e-E6m",
+    hoverImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1Uq9wrj83VGoKGKK-eJh133q56j-qj-6ofz4cfmpkP7GBTn9n3LBVlxa1ghEQcBlrJW8JArZR1azStX1MLs1wt1gQINWfMvHcCesbdH-NJnpkNJXjWwBwWwKCrjulDLjZ0vseH7Jh7NMEVhx7ZNryuP6CyOWQsKa0xdo3GMoOls_zsogcr-GsCKL9vlUNKQm7TuWgCOdjSfKZZvxCkVEDyFJO21-8nmUid6zaRA2i5Y7GNBwkRJQs4Yqfw",
   },
   {
     id: "duchesse-satin",
@@ -247,6 +235,8 @@ export const TEXTILE_ARCHIVE: TextileSwatch[] = [
     lusterOrFinish: { label: "Luster", value: "Luminous Radiance" },
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCKGj7h2IgOQKezj5w6LdvsgHg-NE75XKr87KZBYfzND96Orq2qqw-_xBThpo33jpRP-ZeO8S3mTv9soTpJXervIiRPjm55mOrWfOy50IQG3injnfv_Narzr_S3QfP9zdPs7O3Y-UoASO3dr9WZvhBVPhwMEIuuqkGlTExGiJHjVxl2QQYu1reLPMSzVx009E9rnlRKE1uXegfXm5RFGOQuimOoBs5Tg1kkuhMNMaj3LHaNgIwV-Vk5",
+    hoverImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1WUmuWzNcSrZVRwwYa6yOQYSuSRRLaoBZTpOATKuUU8C8S2athvmjSaI9hHuZfCHu0jDO_F8G29phqfqYeac7Wwffw_XrQW1OwJRkAeAcmgD51IxOySiJ_XTFmgUlWX_495gB97OTYDISdpqFuU6Fwqal1rgVCc7HYvsv4ohfC9NvUpqg7UEWn-0T-1_PCjTsQGG49-0cKV9KyD7Wg5lsnBriv3tR7yG0L5WgVFVnySEcVES_K1sEdEAgg",
   },
   {
     id: "wool-crepe",
@@ -257,6 +247,8 @@ export const TEXTILE_ARCHIVE: TextileSwatch[] = [
     lusterOrFinish: { label: "Finish", value: "Matte Granular" },
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCnJ4_L9DnuoZLmsqcDshPSmMsF827H6XW3bykgNdkqkaY-9dbjKknxSSaE8c-fFvB6WRpVdK4OKYf55TXkbybzyac7gZMSsboLQhQUq8UC9QiZ1I9ykCmLmWGkqWc4F-AYxSyE0V9UfQKwI5d8ItWZpJVL0Y281cL_MRUCPniS4x4aRnZUzZhO76GNOo8mQ7Gr0okqT9uGMCQbXh34E6xhiw8E-bLkir6TNNfts5WB3RZNlIsLBbLT",
+    hoverImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1UJJLLuReMMGkQRARk7UmKdGvzIUlJHIk3wOL-veHj7NHZDD5QBIFoGPonxY0nTBKWlCIAH0dCZbxCH9jFRhZKsw_SqnPBCE6SUGbgmcdcE_GwzNlty3eryLOpaUI1wF94FV3Jt1b8xZ0APpCCHMaDog5EzGzxVBmGbJqL3lYgqSPUGdO2rYSxL68or8Ldo_nbjWXP2Q57CmPjlYi1ZYG9aRwUhloQHdqiZ_L4duSS8uC5LUH9VltCcTg",
   },
   {
     id: "silk-organza",
@@ -267,6 +259,8 @@ export const TEXTILE_ARCHIVE: TextileSwatch[] = [
     lusterOrFinish: { label: "Opacity", value: "Semi-Translucent" },
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAxsBvffrcwYkYewgWaq7UKhv8v59_lv4drrCvyvcU_hulOAQBZUHI6Y89BQjiK5DBAjEM0NoHfKYv1KYhOnKasmB6GX1RyV_bNL8gGIBW9AbWCeB6VKYpcq2Ff7pqdOsmqTJr3EiN-z2OT1KWv-SwGmoxMfdmYGDENi2fXbUcLz2Jf-AEKPkoDJ3NTuEmcvxDIlf4GQxXSfO4hxvPLKP4usPdIvPPcTkpND2q1xdsbIUA97D4M3aQD",
+    hoverImage:
+      "https://lh3.googleusercontent.com/aida/AEtjO1Xu_qIYZgm5zTfb3qtEJKoyQnIG-6biUwta85nCtyFBSq0AYvnOepTtXhlT5pbwRPLgCA8HXqQ74yjVzEeKGECk3AxK0JW_sUfL6H25rPw0I0Pg4nxyqbeqcefWmrNsP0tj7JeaxKS3fL1KcvjTcy86Cp5f2PbUCNJXBFHtfyul6GYGf6M-K-B3NwhmLGFqC2ClKGUb43Uo2--cq_PVclsaFHjIy3dWP_jHb9kjxPR7golgJzGGJerP4_I",
   },
 ];
 

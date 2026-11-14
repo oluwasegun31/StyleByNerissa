@@ -27,13 +27,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`h-full ${morside.variable}`}>
-      <head>
-        {/* Material Symbols Outlined Icon Stylesheet */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-surface text-on-surface antialiased selection:bg-primary selection:text-on-primary">
         <Navbar />
         <div className="flex-1 flex flex-col">{children}</div>

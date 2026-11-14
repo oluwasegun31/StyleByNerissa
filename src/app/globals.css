@@ -34,11 +34,16 @@
   --color-outline: #7D766F;
   --color-outline-variant: #CEC5BD;
 
+  /* Client Standard Color Palette: 60-30-10 */
+  --color-butter-cream: #f4ead5;
+  --color-forest-green: #1e3b2f;
+  --color-hot-pink: #ff3ea5;
+
   /* Client Signature Color Palette Experiment */
   --color-barbie-pink: #F6007B;
   --color-barbie-pink-light: #FFD6EC;
   --color-barbie-light: #FFD6EC;
-  --color-stormy-teal: #0B6E69;
+  --color-stormy-teal: #1e3b2f;
   --color-jungle-green: #00A86B;
 
   --font-serif: "Morside", var(--font-morside), serif;
@@ -57,6 +62,36 @@
 }
 
 /* Explicit Utility Classes for Custom Brand Color Variables */
+.bg-butter-cream {
+  background-color: var(--color-butter-cream) !important;
+}
+.text-butter-cream {
+  color: var(--color-butter-cream) !important;
+}
+.border-butter-cream {
+  border-color: var(--color-butter-cream) !important;
+}
+
+.bg-forest-green {
+  background-color: var(--color-forest-green) !important;
+}
+.text-forest-green {
+  color: var(--color-forest-green) !important;
+}
+.border-forest-green {
+  border-color: var(--color-forest-green) !important;
+}
+
+.bg-hot-pink {
+  background-color: var(--color-hot-pink) !important;
+}
+.text-hot-pink {
+  color: var(--color-hot-pink) !important;
+}
+.border-hot-pink {
+  border-color: var(--color-hot-pink) !important;
+}
+
 .bg-barbie-pink {
   background-color: var(--color-barbie-pink) !important;
 }

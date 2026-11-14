@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon, Chatting01Icon } from "@hugeicons/core-free-icons";
 import { ATELIER_LOCATIONS } from "@/data/mockData";
+import AnalogGrainBackground from "@/components/AnalogGrainBackground";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -21,12 +24,17 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-barbie-pink text-[#161412] py-20 sm:py-28 border-t border-black/15">
+    <footer className="relative w-full bg-[#1e3b2f] text-[#f4ead5] py-20 sm:py-28 border-t border-black/20 overflow-hidden"
+      style={{ backgroundColor: "var(--color-forest-green)" }}
+    >
+      {/* Static Analog Film Grain Background for Forest Green */}
+      <AnalogGrainBackground variant="green" id="grain-footer" />
+
       {/* 100% Full-Width Container (Screen Restriction Removed) */}
-      <div className="w-full px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
+      <div className="relative z-10 w-full px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
         {/* Massive Editorial Pullout */}
-        <div className="pb-12 border-b border-black/15 text-center overflow-hidden">
-          <span className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-[0.18em] text-[#161412] block select-none font-medium">
+        <div className="pb-12 border-b border-[#f4ead5]/15 text-center overflow-hidden">
+          <span className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-[0.18em] text-[#f4ead5] block select-none font-medium">
             Your Silhouette Awaits
           </span>
         </div>
@@ -36,13 +44,13 @@ export default function Footer() {
           {/* Col 1: Private Commissions */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
             <div className="space-y-4">
-              <p className="font-label-caps text-xs text-black/75 tracking-widest uppercase font-semibold">
+              <p className="font-label-caps text-xs text-[#ff3ea5] tracking-widest uppercase font-bold">
                 Private Commissions
               </p>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#161412] font-semibold leading-snug">
+              <h3 className="font-serif text-2xl sm:text-3xl text-[#f4ead5] font-semibold leading-snug">
                 Book an in-studio consultation or virtual fitting session.
               </h3>
-              <p className="font-body-sm text-black/80 max-w-lg leading-relaxed">
+              <p className="font-body-sm text-[#f4ead5]/80 max-w-lg leading-relaxed">
                 Each commission begins with architectural proportion analysis,
                 tactile fabric selection, and precise bespoke draping overseen
                 personally by Nerissa.
@@ -52,7 +60,7 @@ export default function Footer() {
             <div className="flex flex-wrap gap-4 pt-2">
               <a
                 href="#booking"
-                className="inline-flex items-center justify-center bg-[#161412] text-white font-label-caps text-xs font-semibold rounded-full px-7 py-3 transition-all hover:bg-black shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center bg-[#ff3ea5] text-white font-label-caps text-xs font-semibold rounded-full px-7 py-3 transition-all hover:bg-[#e02b8d] shadow-md shadow-[#ff3ea5]/30 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Schedule Fitting
               </a>
@@ -60,24 +68,22 @@ export default function Footer() {
                 href="https://wa.me/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border border-black/30 text-[#161412] font-label-caps text-xs rounded-full px-6 py-3 transition-colors hover:bg-black/10 gap-2 font-medium"
+                className="inline-flex items-center justify-center border border-[#f4ead5]/30 text-[#f4ead5] font-label-caps text-xs rounded-full px-6 py-3 transition-colors hover:bg-[#f4ead5]/10 gap-2 font-medium"
               >
-                <span className="material-symbols-outlined text-[16px]">
-                  chat
-                </span>
+                <HugeiconsIcon icon={Chatting01Icon} size={16} strokeWidth={1.7} aria-hidden="true" />
                 Chat on WhatsApp
               </a>
             </div>
           </div>
 
           {/* Col 2: Atelier Locations */}
-          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-8 text-black/85">
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-8 text-[#f4ead5]/85">
             {ATELIER_LOCATIONS.map((atelier) => (
               <div key={atelier.city} className="space-y-3">
-                <h4 className="font-label-caps text-xs text-[#161412] font-bold tracking-wider uppercase">
+                <h4 className="font-label-caps text-xs text-[#ff3ea5] font-bold tracking-wider uppercase">
                   {atelier.name}
                 </h4>
-                <p className="font-body-sm leading-relaxed text-black/80">
+                <p className="font-body-sm leading-relaxed text-[#f4ead5]/80">
                   {atelier.addressLines.map((line, idx) => (
                     <React.Fragment key={idx}>
                       {line}
@@ -85,7 +91,7 @@ export default function Footer() {
                     </React.Fragment>
                   ))}
                 </p>
-                <p className="font-label-sm text-black/65 pt-1 font-medium">
+                <p className="font-label-sm text-[#f4ead5]/65 pt-1 font-medium">
                   {atelier.schedule}
                 </p>
               </div>
@@ -94,16 +100,16 @@ export default function Footer() {
 
           {/* Col 3: Confidential Newsletter Protocol */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-label-caps text-xs text-[#161412] font-bold tracking-wider uppercase">
+            <h4 className="font-label-caps text-xs text-[#ff3ea5] font-bold tracking-wider uppercase">
               Private Capsule Release
             </h4>
-            <p className="font-body-sm text-black/80 leading-relaxed">
+            <p className="font-body-sm text-[#f4ead5]/80 leading-relaxed">
               Receive confidential invitations to micro-capsules, fabric
               archives, and private salon viewings.
             </p>
 
             {subscribed ? (
-              <div className="p-3 bg-black/10 border border-black/20 rounded-lg text-xs text-[#161412] font-label-sm font-semibold">
+              <div className="p-3 bg-white/10 border border-white/20 rounded-lg text-xs text-[#f4ead5] font-label-sm font-semibold">
                 Thank you. Atelier correspondence protocol initiated.
               </div>
             ) : (
@@ -115,19 +121,17 @@ export default function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your correspondence email"
-                    className="w-full bg-transparent border-b border-black/30 py-2.5 font-body-sm text-[#161412] placeholder:text-black/45 focus:outline-none focus:border-black transition-colors text-sm pr-8"
+                    className="w-full bg-transparent border-b border-[#f4ead5]/30 py-2.5 font-body-sm text-[#f4ead5] placeholder:text-[#f4ead5]/45 focus:outline-none focus:border-[#ff3ea5] transition-colors text-sm pr-8"
                   />
                   <button
                     type="submit"
                     aria-label="Subscribe"
-                    className="absolute right-0 bottom-2 text-[#161412] hover:text-black transition-colors cursor-pointer"
+                    className="absolute right-0 bottom-2 text-[#ff3ea5] hover:text-white transition-colors cursor-pointer"
                   >
-                    <span className="material-symbols-outlined text-[18px]">
-                      arrow_forward
-                    </span>
+                    <HugeiconsIcon icon={ArrowRight01Icon} size={18} strokeWidth={1.7} aria-hidden="true" />
                   </button>
                 </div>
-                <p className="font-label-sm text-black/60 text-[11px]">
+                <p className="font-label-sm text-[#f4ead5]/60 text-[11px]">
                   Atelier confidential protocol respected.
                 </p>
               </form>
@@ -136,18 +140,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom Metadata & Legal Bar with Dynamic Year */}
-        <div className="pt-8 border-t border-black/15 flex flex-col md:flex-row items-center justify-between gap-4 text-black/75 font-label-sm text-xs">
+        <div className="pt-8 border-t border-[#f4ead5]/15 flex flex-col md:flex-row items-center justify-between gap-4 text-[#f4ead5]/75 font-label-sm text-xs">
           <div className="flex flex-wrap items-center gap-6">
             <p>
               © {currentYear} Style by Nerissa Atelier Ltd. All rights reserved.
             </p>
             <a
               href="#sustainability"
-              className="hover:text-black transition-colors"
+              className="hover:text-white transition-colors"
             >
               Sustainability Pledge
             </a>
-            <a href="#terms" className="hover:text-black transition-colors">
+            <a href="#terms" className="hover:text-white transition-colors">
               Terms of Bespoke Service
             </a>
           </div>
@@ -156,7 +160,7 @@ export default function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black transition-colors"
+              className="hover:text-white transition-colors"
             >
               Instagram
             </a>
@@ -164,11 +168,11 @@ export default function Footer() {
               href="https://vogue.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black transition-colors"
+              className="hover:text-white transition-colors"
             >
               Vogue Runway
             </a>
-            <a href="#journal" className="hover:text-black transition-colors">
+            <a href="#journal" className="hover:text-white transition-colors">
               Journal
             </a>
           </div>
