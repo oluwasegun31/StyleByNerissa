@@ -432,39 +432,45 @@ export default function BespokePage() {
                 return (
                   <div
                     key={index}
-                    className="bg-[#fffdf9] border border-[#1e3b2f]/10 overflow-hidden transition-colors duration-300 hover:border-[#1e3b2f]/25"
+                    className="bg-[#fffdf9] border border-[#1e3b2f]/10 overflow-hidden transition-colors duration-200 hover:border-[#1e3b2f]/25"
                   >
                     <button
                       type="button"
                       onClick={() => toggleFaq(index)}
                       aria-expanded={isOpen}
                       aria-controls={`bespoke-faq-${index}`}
-                      className="w-full px-6 sm:px-8 py-6 sm:py-7 text-left flex items-center justify-between gap-6 cursor-pointer hover:bg-[#f4ead5]/50 transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#1e3b2f]"
+                      className="w-full px-6 sm:px-8 py-6 sm:py-7 text-left flex items-center justify-between gap-6 cursor-pointer hover:bg-[#f4ead5]/50 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#1e3b2f]"
                     >
                       <span className="font-serif text-lg sm:text-xl lg:text-2xl text-[#1e3b2f] font-medium leading-snug">
                         {faq.question}
                       </span>
-                      <HugeiconsIcon icon={ArrowDown01Icon} size={22} strokeWidth={1.7} className={`shrink-0 text-[#1e3b2f] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                      <HugeiconsIcon
+                        icon={ArrowDown01Icon}
+                        size={22}
+                        strokeWidth={1.7}
+                        className={`shrink-0 text-[#1e3b2f] transition-transform duration-200 ease-out ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                        aria-hidden="true"
+                      />
                     </button>
 
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          id={`bespoke-faq-${index}`}
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{
-                            duration: 0.35,
-                            ease: [0.16, 1, 0.3, 1],
-                          }}
-                        >
-                          <div className="px-6 sm:px-8 pb-7 text-[#1e3b2f]/80 font-sans text-base sm:text-lg font-light leading-relaxed border-t border-[#1e3b2f]/10 pt-5">
-                            {faq.answer}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <div
+                      id={`bespoke-faq-${index}`}
+                      role="region"
+                      aria-hidden={!isOpen}
+                      className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
+                        isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="px-6 sm:px-8 pb-7 text-[#1e3b2f]/80 font-sans text-base sm:text-lg font-light leading-relaxed border-t border-[#1e3b2f]/10 pt-5">
+                          {faq.answer}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 );
               })}
